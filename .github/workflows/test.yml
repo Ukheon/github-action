@@ -62,6 +62,7 @@ jobs:
                   key: npm-packages-${{ hashFiles('**/package-lock.json') }}
 
             - name: Install Dependencies
+              working-directory: ${{ env.working-directory }}
               # 위 step에서 node_modules에 대한 cache 검사를 했잖아요?
               # 만약 모듈에 변한 게 있다면 `npm install`을 실행하고 아니면 해당 step을 건너뛰게 됩니다.
               # if 키워드는 해당 스텝을 실행할지 말지를 결정할 수 있는 키워드예요.
