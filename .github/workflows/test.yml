@@ -90,8 +90,10 @@ jobs:
               # 그래서 모든 테스트 스크립트에 ${{ always() }}를 붙여줍니다.
               if: ${{ always() }}
             - name: Echo tsc
-              run: npm run tsc
+              working-directory: ${{ env.working-directory }}
+              run: ls -la && npm run tsc
               if: ${{ always() }}
             - name: 'build test'
-              run: npm run build
+              working-directory: ${{ env.working-directory }}
+              run: ls -la && npm run build
               if: ${{ always() }}
